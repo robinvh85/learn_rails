@@ -1,0 +1,39 @@
+
+categories
+  name: string
+
+products
+  name: string
+  category_id: integer
+  price: float
+  description: text
+
+shops
+  name: string
+  address: string
+  description: text
+
+users # Use for admin
+  name: string
+  email: string
+  username: string
+  password: string
+
+customers
+  username: string
+  password: string
+  email: string
+  name:string
+  address: string
+  phone: string
+
+orders
+  customer_id
+  shipping_address
+  status
+
+order_details
+  order_id: integer
+  product_id: integer
+  quantity: integer
+  price: float
