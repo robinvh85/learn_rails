@@ -15,6 +15,8 @@ gem 'mysql2'
 
 gem 'bootstrap-sass'
 # gem 'sprockets'
+gem 'devise'
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
