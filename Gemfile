@@ -13,6 +13,7 @@ gem 'rails', '~> 5.1.4'
 
 gem 'mysql2'
 
+gem 'jquery-rails'
 gem 'bootstrap-sass'
 # gem 'sprockets'
 gem 'devise'

@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  errors:
+    messages:
+      vh_error: "is not robin or robinvh count: %{count}"

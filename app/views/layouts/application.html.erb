@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>LearnRails</title>
     <%= csrf_meta_tags %>
 
@@ -10,17 +13,23 @@
 
   <body class="<%= controller_name %> <%= action_name %>">
     <%= render 'layouts/header' %>
-    <div class="container-fluid">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %> col-md-8 col-md-offset-2 main"><%= value %></div>
-      <% end %>
-      <div class="notice"><%= notice %></div>
-      <div class="alert"><%= alert %></div>
-    </div>
 
-    <% # yield :sidebar %>
-    <%= yield %>
-    
+    <div class="container-fluid">      
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><%= link_to "Categories", categories_path %></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Export</a></li>
+          </ul>          
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <% # yield :sidebar %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
     <%= render 'layouts/footer' %>
     <% debug(params) if Rails.env.development? %>
   </body>

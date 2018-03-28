@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :passwords => 'users/passwords', :confirmations => 'users/confirmations' }
+  devise_for :users, :controllers => { :registrations => 'users/registrations', :confirmations => 'users/confirmations' }
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
     get 'signin', to: 'devise/sessions#new'
