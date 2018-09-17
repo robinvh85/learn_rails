@@ -1,0 +1,14 @@
+.filters_tab {
+  border: 1px solid #ccc;
+  margin-top: -2px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+  z-index: 2;
+}
+
+.filters_tab_items .nav-link.active {
+  background: #f8f9fa;
+  z-index: 1;
+  border: 1px solid #ccc;
+  border-bottom: none;
+}
