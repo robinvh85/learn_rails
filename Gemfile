@@ -53,6 +53,7 @@ gem 'omniauth-google-oauth2'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'grape', '~> 1.1'
+gem 'grape-entity', '~> 0.7.1'
 gem 'grape-swagger', '~> 0.31.0'
 
 group :development, :test do

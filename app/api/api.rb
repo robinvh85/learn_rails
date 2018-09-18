@@ -5,7 +5,7 @@ module API
     content_type :xml, 'application/xml'
     content_type :json, 'application/json'
     content_type :txt, 'text/plain'
-    default_format :txt
+    default_format :json
 
     default_error_formatter :json
     format :json
