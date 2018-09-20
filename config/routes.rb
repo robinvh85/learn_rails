@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
 
-  mount API::Root => '/api'
+  mount API::Root => '/'
+  unless Rails.env.production?
+    mount GrapeSwaggerRails::Engine, at: '/swagger'
+  end
 end
