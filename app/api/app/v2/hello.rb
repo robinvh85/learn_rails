@@ -4,6 +4,7 @@ module App
       version 'v2', using: :path
 
       namespace :hello do
+        desc 'Get sample API hello'
         get do
           { hello: 'Hello world 2' }
         end
