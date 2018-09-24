@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-  <a class="navbar-brand mr-auto mr-lg-0" href="#">VH</a>
+
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto"></ul>
-    <a class="navbar-brand mr-auto mr-lg-0" href="#">User</a>
+      <% if current_my_login %>
+        <%= link_to 'Logout', destroy_my_login_session_path, class: "navbar-brand mr-auto mr-lg-0", method: :delete %>
+      <% else %>
+        <%= link_to 'Login', new_my_login_session_path, class: "navbar-brand mr-auto mr-lg-0" %>
+      <% end %>
   </div>
 </nav>

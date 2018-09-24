@@ -12,6 +12,16 @@
   </head>
   <body class="bg-light">
 
+    <% flash.each do |name, msg| %>
+      <% if msg.class == Array %>
+        <% msg.each do |message| %>
+          <%= content_tag :div, message, :id => "flash_#{name}" %>
+        <% end %>
+      <% else %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+    <% end %>
+
     <%= render 'layouts/header' %>
     <%= render 'layouts/top_menu' %>
     <main role="main" class="wrapper">
