@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products
+
+  get 'index', to: 'application#index'
 end
