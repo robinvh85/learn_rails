@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'users/login', to: 'users#login'
   post 'users/login', to: 'users#login', as: :user_login
+  get 'index', to: 'application#index'
 
   mount API::Root => '/'
   unless Rails.env.production?
