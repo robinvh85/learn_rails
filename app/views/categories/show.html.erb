@@ -1,3 +1,9 @@
-<h1>Categories</h1>
+<p id="notice"><%= notice %></p>
 
-<p>Category show</p>
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
