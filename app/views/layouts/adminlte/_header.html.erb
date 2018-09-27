@@ -42,7 +42,7 @@
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="hidden-xs">Alexander Pierce</span>
+            <span class="hidden-xs"><%= current_my_login.username %></span>
           </a>
           <ul class="dropdown-menu">
             <!-- Menu Footer-->
@@ -51,7 +51,7 @@
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <%= link_to 'Logout', destroy_my_login_session_path, class: "btn btn-default btn-flat", method: :delete %>
               </div>
             </li>
           </ul>
