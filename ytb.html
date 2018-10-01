@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>;</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body onkeydown="keyPress(event)">
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player" style="display:none;"></div>
+    <div style="display:none;">
+      <i class="fa fa-angle-left" onclick="playVideo()"></i>
+      <i class="fa fa-caret-down" onclick="stopVideo()"></i>
+      <i class="fa fa-angle-right" onclick="playVideo()"></i>
+    </div>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      var playing = false;
+      var current_time = 0;
+      var step_secs = 10;
+
+      var paragraphs = [];
+      var para_current_index = 0;
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '10',
+          width: '10',
+          videoId: 'qYb0LCqqJbU',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+        playing = true;
+        current_time = event.target.getCurrentTime();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        // if (event.data == YT.PlayerState.PLAYING && !done) {
+        //   setTimeout(stopVideo, 6000);
+        //   done = true;
+        // }
+      }
+
+      function stopVideo() {
+        player.stopVideo();
+      }
+
+      function playVideo() {
+        player.playVideo();
+      }
+
+      function keyPress(e){
+        console.log(e.which);
+
+        switch(e.which) {
+          case 191:
+          case 32:
+          case 40:
+            if(playing)
+              player.playVideo();
+            else
+              player.pauseVideo();
+
+            playing = !playing;
+            break;
+          case 190: // >
+            para_current_index = findCurrentParaIndex() + 1;
+
+            if(para_current_index < 0){
+              break;
+            }
+
+            var extra_secs = 1;
+            if (para_current_index >= 0 && para_current_index < paragraphs.length) {
+              player.seekTo(paragraphs[para_current_index].time + extra_secs);
+              setTimeout(function() {
+                console.log('==>', player.getCurrentTime());
+                console.log(paragraphs[para_current_index].title);
+              }, 500);
+            }
+            break;
+          case 39:
+            player.seekTo(player.getCurrentTime() + step_secs);
+            setTimeout(function() { console.log('==>', player.getCurrentTime())} , 500);
+            break;
+          case 188: // <
+            para_current_index = findCurrentParaIndex() - 1;
+
+            if(para_current_index < 0){
+              player.seekTo(paragraphs[paragraphs.length - 1].time);
+              break;
+            }
+
+            if (para_current_index >= 0) {
+              player.seekTo(paragraphs[para_current_index].time);
+              setTimeout(function() {
+                console.log('==>', player.getCurrentTime());
+                console.log(paragraphs[para_current_index].title);
+              }, 500);
+            }
+            break;
+          case 37:
+            player.seekTo(player.getCurrentTime() - step_secs);
+            setTimeout(function() { console.log('<< =>', player.getCurrentTime())} , 500);
+            break;
+        }
+      }
+
+      function findCurrentParaIndex(){
+        var _current_time = player.getCurrentTime();
+
+        for(var i=1; i<paragraphs.length; i++){
+          if(paragraphs[i].time >= _current_time){
+            return i - 1;
+          }
+        }
+
+        if(_current_time == 0){
+          return 0;
+        }
+
+        return -1;
+      }
+
+      paragraphs.push({time: 0, title: 'First snow fall'});
+      paragraphs.push({time: 66, title: 'First day of school'});
+      paragraphs.push({time: 174, title: 'My flower garden'});
+      paragraphs.push({time: 231, title: 'Going camping'});
+      paragraphs.push({time: 296, title: 'My house'});
+      paragraphs.push({time: 366, title: 'My first pet'});
+      paragraphs.push({time: 430, title: 'A firefighter'});
+      paragraphs.push({time: 488, title: 'Mark big game'});
+      paragraphs.push({time: 554, title: 'Easter egg hunt'});
+      paragraphs.push({time: 626, title: 'First car'});
+      paragraphs.push({time: 696, title: 'Summer vacation'});
+      paragraphs.push({time: 763, title: 'Cleaning up leaves'});
+      paragraphs.push({time: 825, title: 'Susan wedding day'});
+      paragraphs.push({time: 886, title: 'Rememberance day'});
+      paragraphs.push({time: 937, title: 'Halloween night'});
+      paragraphs.push({time: 1013, title: 'Christmas Eve'});
+      paragraphs.push({time: 1094, title: 'Thanksgiving'});
+      paragraphs.push({time: 1161, title: 'Learning how to drive'});
+      paragraphs.push({time: 1223, title: "House's work"});
+    </script>
+  </body>
+</html>
