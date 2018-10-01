@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   layout 'adminlte'
   # before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :authenticate_my_login!
+
   protect_from_forgery with: :exception
 
   # To permit new custom attributes to be cerified as attributes permitted by the form
