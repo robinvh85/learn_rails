@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: utf8
   pool: 5
-  username: d_h_viet
+  username: vh
   password:
   database: learn_rails
   schema_search_path: public

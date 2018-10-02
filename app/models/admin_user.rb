@@ -1,4 +1,4 @@
-class Admin < ApplicationRecord
+class AdminUser < ApplicationRecord
   extend Enumerize
 
   self.table_name = "my_logins"

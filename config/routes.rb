@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #   delete 'logout', to: 'devise/sessions#destroy', as: :logout
   # end
 
-  devise_for :admin, path: 'auth', controllers: {
+  devise_for :admin_user, path: 'auth', controllers: {
     omniauth_callbacks: 'admin/omniauth_callbacks'
   }
 

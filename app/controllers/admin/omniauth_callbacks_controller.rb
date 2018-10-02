@@ -2,7 +2,7 @@
 
 module Admin
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    def google_oauth2
+    def admin_google_oauth2
       @my_login = MyLogin.from_omniauth(request.env['omniauth.auth'])
 
       binding.pry
