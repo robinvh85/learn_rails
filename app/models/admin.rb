@@ -1,14 +1,13 @@
-class MyLogin < ApplicationRecord
+class Admin < ApplicationRecord
   extend Enumerize
+
+  self.table_name = "my_logins"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  devise :omniauthable, omniauth_providers: [:google_oauth2]
+  devise :omniauthable, omniauth_providers: [:admin_google_oauth2]
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
-
   enumerize :login_type, in: { normal: 0, google: 1, facebook: 2 }
 
   def self.from_omniauth(access_token)
