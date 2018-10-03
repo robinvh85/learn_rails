@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   get 'index', to: 'application#index'
 
+  get 'readers/pdf'
+  post 'readers/upload_pdf'
+
   mount API::Root => '/'
   unless Rails.env.production?
     mount GrapeSwaggerRails::Engine, at: '/swagger'
