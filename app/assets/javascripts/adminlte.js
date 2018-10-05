@@ -15,3 +15,4 @@
 // require turbolinks
 //= require adminlte/jquery.min
 //= require_tree ./adminlte
+//= require_tree ./lib

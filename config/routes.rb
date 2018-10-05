@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   get 'index', to: 'application#index'
 
-  get 'readers/pdf'
+  get 'readers/index'
+  get 'readers/pdf/:name', to: 'readers#pdf'
   post 'readers/upload_pdf'
 
   mount API::Root => '/'
