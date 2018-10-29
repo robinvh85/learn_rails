@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'index', to: 'application#index'
 
+  resources :es6
+
   mount API::Root => '/'
   unless Rails.env.production?
     mount GrapeSwaggerRails::Engine, at: '/swagger'
