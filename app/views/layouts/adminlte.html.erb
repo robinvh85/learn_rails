@@ -49,8 +49,13 @@
 
   <script>
     $(document).ready(function () {
-      $('.sidebar-menu').tree()
-    })
+      $('.sidebar-menu').tree();
+    });
+
+    var loadReady = function () {
+      return $(window).trigger('resize');
+    };
+    document.addEventListener('turbolinks:load', loadReady);
   </script>
   </body>
 </html>
