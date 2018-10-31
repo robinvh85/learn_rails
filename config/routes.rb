@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'index', to: 'application#index'
 
   resources :es6
+  resources :cloudinary
 
   mount API::Root => '/'
   unless Rails.env.production?
