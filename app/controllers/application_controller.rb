@@ -10,4 +10,6 @@ class ApplicationController < ActionController::Base
   # end
 
   def index; end
+
+  def copy; end
 end
