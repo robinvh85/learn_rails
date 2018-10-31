@@ -6,7 +6,7 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.string :name, comment: 'customer name'
       t.string :phone, comment: 'phone number'
       t.string :email, null: false, comment: 'email'
-      t.string :image_path, comment: 'image of customer'
+      t.string :avatar, comment: 'avatar of customer'
 
       t.timestamps
     end

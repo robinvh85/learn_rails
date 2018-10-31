@@ -33,7 +33,7 @@
       <tbody>
         <% @customers.each do |customer| %>
           <tr>
-            <td><%= customer.image_path %></td>
+            <td><%= image_tag(customer.avatar.url || no_image_path) %></td>
             <td><%= customer.name %></td>
             <td><%= customer.phone %></td>
             <td><%= customer.email %></td>

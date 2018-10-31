@@ -30,10 +30,7 @@ class CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to @customer, notice: 'Customer was successfully updated.'
     else
-      # render :edit
-      # render js: :create
       respond_to do |format|
-        # binding.pry
         format.js { render :file => "create.js.erb", locals: { model: @customer } }
       end
     end
@@ -51,6 +48,6 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:name, :phone, :email, :image_path)
+    params.require(:customer).permit(:name, :phone, :email, :avatar)
   end
 end

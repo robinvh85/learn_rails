@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_082230) do
     t.string "name", comment: "customer name"
     t.string "phone", comment: "phone number"
     t.string "email", null: false, comment: "email"
-    t.string "image_path", comment: "image of customer"
+    t.string "avatar", comment: "avatar of customer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "customers_idx01"
