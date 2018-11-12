@@ -31,4 +31,10 @@ $(function() {
   <%# cl_image_upload_tag(:image_id) %>
   <input type="file" name="image1">
   <button type="submit">Submit</button>
+  <hr/>
+
+  <%= cl_image_tag("my_pics/article_img1", :sign_url => true) %>
+  <%= cl_image_tag("my_pics/no_image", :sign_url => true) %>
+  <%= cl_image_tag("my_pics/auth1", :sign_url => true) %>
+
 <% end %>
