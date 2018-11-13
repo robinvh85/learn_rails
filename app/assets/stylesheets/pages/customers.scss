@@ -1,0 +1,29 @@
+.customers {
+  .index {
+    table {
+      th {
+        text-align: center;
+      }
+      th:nth-child(1){
+        width: 150px;
+      }
+      th:last-child{
+        width: 200px;
+      }
+      .img-container {
+        max-width: 100px;
+        margin: auto;
+        img {
+          max-width: 100%;
+          max-height: auto;
+        }
+      }
+    }
+  }
+
+  .show {
+    .avatar-img {
+      width: 200px;
+    }
+  }
+}
