@@ -15,8 +15,14 @@ Rails.application.routes.draw do
 
   get 'index', to: 'application#index'
 
+  resources :chatrooms, param: :slug
+  resources :messages
+
   mount API::Root => '/'
   unless Rails.env.production?
     mount GrapeSwaggerRails::Engine, at: '/swagger'
   end
+
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
 end

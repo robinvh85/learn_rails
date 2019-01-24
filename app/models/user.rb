@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   validate :check_valid_username
 
+  has_many :messages
+  has_many :chatrooms, through: :messages
+
   def check_valid_username
     if username == 'robin' || username == 'robinvh'
       # errors.add(:username, "too_long.other".to_sym, count: 10)
