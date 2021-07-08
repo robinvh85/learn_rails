@@ -1,0 +1,18 @@
+development:
+  cloud_name: dhviet
+  api_key: '681598658944892'
+  api_secret: S9IHEcfHhVTT3hXd9N0oJruOOrQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dhviet
+  api_key: '681598658944892'
+  api_secret: S9IHEcfHhVTT3hXd9N0oJruOOrQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dhviet
+  api_key: '681598658944892'
+  api_secret: S9IHEcfHhVTT3hXd9N0oJruOOrQ
+  enhance_image_tag: true
+  static_image_support: false

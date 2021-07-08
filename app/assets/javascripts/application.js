@@ -16,5 +16,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require cloudinary
 // require ./libs/moment.min
 // require_tree ./libs
+
