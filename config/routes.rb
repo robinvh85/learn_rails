@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :products
 
   get 'index', to: 'application#index'
+  get 'copy', to: 'application#copy'
+
+  resources :es6
+  resources :cloudinary
 
   mount API::Root => '/'
   unless Rails.env.production?

@@ -1,0 +1,117 @@
+<% content_for :title do %>
+  Application Copy using ctrl_c
+<% end %>
+
+<% content_for :breadcumb do %>
+  <li><a href="#">Module</a></li>
+  <li class="active">Blank page</li>
+<% end %>
+
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Title</h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+              title="Collapse">
+        <i class="fa fa-minus"></i></button>
+    </div>
+  </div>
+  <div class="box-body">
+    <select id="select1">
+      <option value="1" id="opt1">Value 1</option>
+      <option value="2" onclick="alert(this.value);">Value 2</option>
+      <option value="3">Value 3</option>
+    </select>
+
+    <select id="select2">
+      <option value="1">Value 1</option>
+      <option value="2">Value 2</option>
+      <option value="3">Value 3</option>
+    </select>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+    Footer
+  </div>
+  <!-- /.box-footer-->
+</div>
+<!-- /.box -->
+
+<script>
+// $('#select1').keydown(function(e){
+//  console.log("KEYDOWN", e.which)
+
+$(function(){
+  var ctrlDown = false,
+    ctrlKey = 17,
+    cmdKey = 91,
+    vKey = 86,
+    cKey = 67;
+
+  var copied_value = null;
+
+  $('#opt1').keydown(function(e) {
+    console.log("keydown", e);
+  });
+
+  $('#opt1').keypress(function(e) {
+    console.log("keypress", e);
+  });
+
+  $('#opt1').keyup(function(e) {
+    console.log("keyup", e);
+  });
+
+/*
+  $('#select1').keydown(function(e) {
+    if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = true;
+  }).keyup(function(e) {
+    if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = false;
+  });
+
+  $('#select1').keydown(function(e) {
+    if (ctrlDown && (e.keyCode == vKey || e.keyCode == cKey)){
+      console.log("CTRL + ", e.keyCode);
+      console.log("value", e);
+      copied_value = e.target.value;
+    }
+  });
+
+  $('#select2').keydown(function(e) {
+    if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = true;
+  }).keyup(function(e) {
+    if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = false;
+  });
+
+  $('#select2').keydown(function(e) {
+    if (ctrlDown && (e.keyCode == vKey || e.keyCode == cKey)){
+      console.log("CTRL + ", e.keyCode);
+      console.log("value", e);
+      e.target.value = copied_value;
+    }
+  });
+*/
+
+  function set_copy_paste(el){
+    $(el).keydown(function(e) {
+      if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = true;
+    }).keyup(function(e) {
+      if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = false;
+    });
+
+    $(el).keydown(function(e) {
+      if (ctrlDown && (e.keyCode == vKey || e.keyCode == cKey)){
+        if(e.keyCode == cKey) {
+          copied_value = e.target.value;
+        } else if(e.keyCode == vKey){
+          e.target.value = copied_value;
+        }
+      }
+    });
+  }
+
+  $('select').each(function(index, item){
+    set_copy_paste(item);
+  });
+});
+</script>
