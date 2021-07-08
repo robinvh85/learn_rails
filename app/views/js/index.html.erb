@@ -1,0 +1,25 @@
+<h1 class="page-header">Js</h1>
+
+<p>Test JS</p>
+
+<script>
+
+function test_promise(){
+  var pro = new Promise(function(resolve, reject){
+    resolve('OK');
+    console.log("NEXT");
+    reject("NG");
+  });
+
+  setTimeout(function(){
+    pro.then(function(x){
+      console.log("success", x);
+      return "STEP 1"
+    }).then(function(x){
+      console.log("STEP 2", x);
+    }).catch(function(x){
+      console.log("error", x);
+    });
+  }, 2000);
+}
+</script>
