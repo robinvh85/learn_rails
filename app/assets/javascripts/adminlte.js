@@ -12,6 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-// require turbolinks
+//= require turbolinks
 //= require adminlte/jquery.min
 //= require_tree ./adminlte

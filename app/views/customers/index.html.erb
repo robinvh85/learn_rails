@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<% content_for :title do %>
+  Customers
+<% end %>
+
+<% content_for :breadcumb do %>
+  <li><%= link_to 'Customers', customers_path %></li>
+  <li class="active">List</li>
+<% end %>
+
+<div class="box index">
+  <div class="box-header with-border">
+    <h3 class="box-title">List</h3>
+    <div class="box-tools pull-right">
+      <%= link_to 'New', new_customer_path, class: 'btn btn-success' %>
+      <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="box-body">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td>
+              <div class='img-container'>
+                <%= image_tag(customer.avatar.url || no_image_path) %>
+              </div>
+            </td>
+            <td><%= customer.name %></td>
+            <td><%= customer.phone %></td>
+            <td><%= customer.email %></td>
+            <td class='center'>
+              <%= link_to 'Show', customer, class: 'btn btn-sm btn-primary' %>
+              <%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-sm btn-primary' %>
+              <%= link_to 'Destroy', customer, class: 'btn btn-sm btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+
+  </div>
+  <!-- /.box-footer-->
+</div>
+<!-- /.box -->

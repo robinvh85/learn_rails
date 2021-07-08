@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_27_060345) do
+ActiveRecord::Schema.define(version: 2018_10_30_082230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,32 @@ ActiveRecord::Schema.define(version: 2018_03_27_060345) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name", comment: "customer name"
+    t.string "phone", comment: "phone number"
+    t.string "email", null: false, comment: "email"
+    t.string "avatar", comment: "avatar of customer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "customers_idx01"
+  end
+
+  create_table "my_logins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "username", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "login_type", default: 0, null: false
+    t.index ["email"], name: "index_my_logins_on_email", unique: true
+    t.index ["login_type"], name: "index_my_logins_on_login_type"
+    t.index ["reset_password_token"], name: "index_my_logins_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_my_logins_on_username", unique: true
   end
 
   create_table "products", force: :cascade do |t|

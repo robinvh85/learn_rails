@@ -35,8 +35,8 @@
         </ol>
       </section>
 
-      <!-- Main content -->
-      <section class="content">
+      <!-- Main content -->     
+      <section class="content <%= controller_name %>">
         <%= yield %>
       </section>
       <!-- /.content -->
@@ -49,8 +49,13 @@
 
   <script>
     $(document).ready(function () {
-      $('.sidebar-menu').tree()
-    })
+      $('.sidebar-menu').tree();
+    });
+
+    var loadReady = function () {
+      return $(window).trigger('resize');
+    };
+    document.addEventListener('turbolinks:load', loadReady);
   </script>
   </body>
 </html>
